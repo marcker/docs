@@ -13,10 +13,9 @@ module.exports = {
     success: { description: 'Done.', example: 'TODO' } },
   fn: function (inputs,exits) {
     return exits.success();
-  },
-
+  }
 };
-```    
+```
 
 First, define the inputs:
 
@@ -65,7 +64,7 @@ Finally, implement the function:
     Http.sendHttpRequest({
       baseUrl: 'http://api.klout.com/v2/identity.json/twitter?screenName=' + inputs.twitterScreenName + '&key=' + inputs.apiKey,
       url: '',
-      method: 'get',
+      method: 'get'
     }).exec({
       // OK.
       success: function(result) {
@@ -95,9 +94,9 @@ Finally, implement the function:
       error: function(err) {
 
         exits.error(err);
-      },
+      }
     });
-  },
+  };
 ```
 
 Your first machine is ready to run! You can find the example code for the completed machine in [this gist](https://gist.github.com/rachaelshaw/937b44f40995edb44b947090930c46a2).
@@ -127,15 +126,15 @@ twitterScreenName:  irlnathan
 ? Please enter your Klout API key.
 apiKey:  bb8xy34;;dls9facob8ad44
 ________________________________________________________________˛
-                                                                 
+
    Klout.getKloutId()
-  
+
    » twitterScreenName "irlnathan"
    » apiKey "bb8xy34;;dls9facob8ad44"
 
-________________________________________________________________¸ 
-  | 
-  • 
+________________________________________________________________¸
+  |
+  •
   The machine triggered its success exit and returned a value:
    '52917300386935988'
 
