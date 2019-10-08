@@ -47,10 +47,10 @@ And then use it normally:
 var Other = require('machinepack-other');
 Other.doStuff({someInput: 'stuff'}).exec({
   error: function (err){
-    
+
   },
   success: function (){
-  
+
   }
 });
 ```
@@ -72,7 +72,7 @@ var validateUrl = require('machine').build(require('./validate'));
 validateUrl({string: 'stuff'}).exec({
   error: function (err){ /* ... */},
   invalid: function (){ /* ... */ },
-  success: function (){ /* ... */},
+  success: function (){ /* ... */}
 });
 
 ```
