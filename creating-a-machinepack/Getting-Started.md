@@ -3,14 +3,14 @@
 Machinepacks are bundles of related machines.  They might be unified by the API they talk to (e.g. [Stripe](http://node-machine.org/machinepack-stripe)) or their purpose (e.g. [Passwords](http://node-machine.org/machinepack-passwords)).  It's really up to you!  The important thing to remember is that machinepacks are just a versioned, organizational unit you can publish and install.
 
 For example, as of February 2015, [machinepack-github](http://node-machine.org/machinepack-github) contains 11 machines; it supports everything from fetching basic metadata about a particular GitHub user, to listing repo activity, to creating a new repo altogether.  The machinepack can be installed and required from your Node.js code like any other `npm` module:
-    
+
 ```javascript
 var Github = require('machinepack-github');
 
 // Fetch metadata about a repository on GitHub.
 Github.getRepo({
   repo: 'sails',
-  owner: 'balderdashy',
+  owner: 'balderdashy'
 }).exec({
   // An unexpected error occurred.
   error: function (){
@@ -18,7 +18,7 @@ Github.getRepo({
   // OK.
   success: function (result){
     console.log('Got:\n', result);
-  },
+  }
 });
 ```
 
@@ -28,7 +28,7 @@ In the process of using machines for the past year or so, the core team behind t
 
 ##### Yeoman generator
 
-For your convenience, there is a Yeoman generator for creating machinepacks.  You will likely only use this tool every now and then, but it's worth it to get you off the ground running.  
+For your convenience, there is a Yeoman generator for creating machinepacks.  You will likely only use this tool every now and then, but it's worth it to get you off the ground running.
 
 The Yeoman generator (`generator-machinepack`) requires [Yeoman](http://yeoman.io/).  If you don't already have Yeoman globally installed, you'll want to do that before proceeding:
 
@@ -55,7 +55,7 @@ $ npm install -g machinepack
 > **Note:** If you run into install issues, try `$ sudo`.
 
 ### Generating your first machinepack.
-I ran across an interesting [API](https://klout.com/s/developers/v2) from [Klout](https://klout.com/). Klout uses social media analytics to rank people based upon their social influence via a Klout Score.  So we'll create a couple of machines that will return a person's Klout ID and Klout score. 
+I ran across an interesting [API](https://klout.com/s/developers/v2) from [Klout](https://klout.com/). Klout uses social media analytics to rank people based upon their social influence via a Klout Score.  So we'll create a couple of machines that will return a person's Klout ID and Klout score.
 
 To begin, we'll generate a bare bones machinepack by typing:
 
@@ -71,10 +71,10 @@ You'll be prompted for a "friendly name".   By entering "Klout", the machinepack
     |--(o)--|    |      Welcome to the      |
    `---------´   |  Machinepack generator!  |
     ( _´U`_ )    '--------------------------'
-    /___A___\    
-     |  ~  |     
-   __'.___.'__   
- ´   `  |° ´ Y ` 
+    /___A___\
+     |  ~  |
+   __'.___.'__
+ ´   `  |° ´ Y `
 
 ? What would you like to use as the "friendly name" for your machinepack?
 (e.g. "Passwords" or "Twitter")
@@ -98,9 +98,9 @@ The generator gives you the option to create an example machine.  Let's go ahead
 Finally, you'll be prompted to specify whether to put this example machine in a **new** folder within the machinepack, or at the **root** of the machinepack.  Let's just press enter to use the default, and have the generator create a folder for us.
 
 ```sh
-? Where should this new machinepack be generated? 
-❯ In a new folder (/Users/jgalt/Development/machinepack-klout) 
-  Within the current directory (/Users/jgalt/Development/) 
+? Where should this new machinepack be generated?
+❯ In a new folder (/Users/jgalt/Development/machinepack-klout)
+  Within the current directory (/Users/jgalt/Development/)
 ```
 
 All of the necessary structure will be created including installing any dependencies.
@@ -143,14 +143,14 @@ If the machine has any required inputs, you'll be prompted to enter a value for 
 name:  John
 Hello John, your secret code is 0.8229460262227803
 ________________________________________________________________˛
-                                                                 
+
    Klout.sayHello()
-  
+
    » name "John"
 
-________________________________________________________________¸ 
-  | 
-  • 
+________________________________________________________________¸
+  |
+  •
   The machine triggered its success exit and returned a value:
    { numLettersInName: 4, secretCode: '0.8229460262227803' }
 ```
@@ -164,7 +164,7 @@ Adding a machine to an exisitng pack is simple.  From the root directory of your
 $ machinepack add
 ```
 
-You'll be prompted for a "friendly name": 
+You'll be prompted for a "friendly name":
 
 ```sh
 ? What would you like to use as the "friendly name" for your new machine?
@@ -285,5 +285,3 @@ Of course since `machinepack-klout` already exists, you won't be _actually_ be a
 > By the way, if you haven't published a module to NPM before, don't worry-- it's super easy.  Just [sign up on NPM's website](https://www.npmjs.org/), then log in from the command-line using `npm login`.  After that, if you try running `npm publish` again, you should have better results.
 
 Congratulations on creating your first machinepack! There are hundreds of machines already published and available on NPM, but there is still plenty of work to do.  If you can imagine it implemented in a Node module, you can build it as a machine.  Go forth and code... and good luck.
-
-
